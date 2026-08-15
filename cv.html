@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel.DEV - Développeur Web & Entrepreneur Digital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: #0A192F;
+            color: #E6F1FF;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            background: #0A192F;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo { font-size: 24px; font-weight: bold; color: #FFD700; }
+        .logo span { color: white; }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav a { color: #CCD6F6; text-decoration: none; font-weight: 500; }
+        nav a:hover { color: #FFD700; }
+        .btn-nav {
+            background: #FFD700; color: #0A192F; padding: 10px 20px;
+            border-radius: 8px; font-weight: bold;
+        }
+        /* HERO */
+        .hero {
+            display: flex; align-items: center; gap: 50px;
+            padding: 80px 0;
+        }
+        .hero-text h1 { font-size: 42px; margin: 15px 0; color: white; }
+        .hero-text p { color: #8892B0; margin-bottom: 30px; }
+        .tag { background: #112240; color: #FFD700; padding: 5px 15px; border-radius: 20px; display: inline-block; }
+        .btn {
+            padding: 12px 25px; border-radius: 8px; text-decoration: none;
+            font-weight: bold; margin-right: 15px; display: inline-block;
+        }
+        .btn-primary { background: #FFD700; color: #0A192F; }
+        .btn-secondary { border: 1px solid #FFD700; color: #FFD700; }
+        .hero-img img {
+            width: 350px; border-radius: 15px; border: 3px solid #FFD700;
+        }
+        .stats { display: flex; gap: 20px; margin-top: 30px; color: #25D366; }
+        /* SECTIONS */
+        section { padding: 80px 0; }
+        h2 { text-align: center; font-size: 32px; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #8892B0; margin-bottom: 50px; }
+        /* PROJETS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Force 3 colonnes tout le temps */
+            gap: 30px;
+            padding: 10px;
+        }
+        .project-card {
+            background: #112240; padding: 30px; border-radius: 12px;
+            border: 1px solid #233554; transition: 0.3s;
+        }
+        .project-card:hover { transform: translateY(-5px); border-color: #FFD700; }
+        .project-tag { background: #FFD700; color: #0A192F; padding: 5px 10px; border-radius: 5px; font-size: 12px; font-weight: bold; }
+        .project-card img { width: 100%; border-radius: 8px; margin: 15px 0; }
+        .tech span { background: #233554; padding: 5px 10px; border-radius: 5px; font-size: 12px; margin-right: 10px; }
+        /* COMPETENCES */
+        .skills-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .skill-card {
+            background: #112240; padding: 30px; border-radius: 12px; text-align: center;
+        }
+        .skill-card h3 { color: #FFD700; font-size: 28px; }
+        /* CONTACT */
+        .contact-box {
+            background: #112240; padding: 40px; border-radius: 12px;
+            text-align: center; border: 1px solid #233554;
+        }
+        .whatsapp-btn {
+            background: #25D366; color: white; padding: 15px 30px;
+            border-radius: 8px; text-decoration: none; font-weight: bold;
+            display: inline-block; margin-top: 20px;
+        }
+        /* FOOTER */
+        footer {
+            background: #000000;
+            color: #aaaaaa;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 5px solid #FFD700;
+            width: 100%;
+        }
+        footer p {
+            margin: 10px 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+        footer b {
+            color: white;
+        }
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; }
+           
+            .hero-img img { width: 250px; }
+            .btn-nav { display: none; }
+            
+            /* Garde 3 colonnes sur mobile */
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                padding: 5px;
+            }
+            
+            .project-card {
+                padding: 15px;
+            }
+            
+            .project-card img {
+                width: 100%;
+                height: auto;
+                margin: 10px 0;
+            }
+            
+            .project-card h3 {
+                font-size: 14px;
+            }
+            
+            .project-card p {
+                font-size: 11px;
+            }
+            
+            .project-tag {
+                font-size: 10px;
+                padding: 3px 8px;
+            }
+            
+            .tech span {
+                font-size: 9px;
+                padding: 3px 5px;
+                margin-right: 3px;
+            }
+            
+            h2 { font-size: 24px; }
+            .hero-text h1 { font-size: 28px; }
+            section { padding: 40px 0; }
+            .subtitle { margin-bottom: 30px; }
+        }
+        
+        /* Pour les très petits écrans */
+        @media(max-width: 480px) {
+            .projects-grid {
+                gap: 5px;
+                padding: 2px;
+            }
+            
+            .project-card {
+                padding: 10px;
+            }
+            
+            .project-card h3 {
+                font-size: 12px;
+            }
+            
+            .project-card p {
+                font-size: 9px;
+            }
+            
+            .project-card img {
+                margin: 5px 0;
+            }
+            
+            .project-tag {
+                font-size: 8px;
+                padding: 2px 5px;
+            }
+            
+            .tech span {
+                font-size: 7px;
+                padding: 2px 3px;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+            
+            h2 { font-size: 20px; }
+            .hero-text h1 { font-size: 22px; }
+            .btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+        /*adapte le texte par appot à la taille d'écran pour viter le defilement horizontale*/
+        @media(max-width: 768px) {
+        nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+@media(max-width: 768px) {
+    nav {
+        flex-direction: column; /* 1. Met le logo au dessus, menu en dessous */
+        align-items: center;    /* 2. Centre tout */
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    nav ul {
+        display: flex;          /* 3. On force l'affichage */
+        flex-wrap: wrap;        /* 4. Passe à la ligne si besoin */
+        justify-content: center;/* 5. Centre les liens */
+        gap: 12px 25px;         /* 12px entre lignes, 25px entre mots */
+    }
+    
+    nav a {
+        font-size: 15px; /* un peu plus petit pour tenir */
+    }
+    
+    .btn-nav { 
+        display: none; /* Cache le bouton "Dispo" sur mobile pour gagner de la place */
+    }
+    
+    .logo {
+        font-size: 28px; /* Logo plus grand */
+    }
+
+    /* Le reste */
+    .hero { flex-direction: column; text-align: center; }
+    .hero-img img { width: 250px; }
+    
+}
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <nav>
+            <div class="logo">Samuel.<span>DEV</span></div>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="btn-nav">Dispo • Freelance</a>
+        </nav>
+    </div>
+
+    <section id="accueil" class="container hero">
+        <div class="hero-text">
+            <span class="tag">⭐Notre Vision</span>
+            <h1>Samuel - Développeur Web &<br>Entrepreneur Digital</h1>
+            <p>Nous concevons pour vous des sites web modernes et des solutions digitales pour aider les entreprises et particuliers à se développer en ligne. Spécialisé en développement web et design digital.</p>
+            <a href="#projets" class="btn btn-primary">Voir Nos projets →</a>
+            <a href="#contact" class="btn btn-secondary">Nous contacter</a>
+            <div class="stats">
+                <span>✓ Projets bien livrés</span>
+                <span>✓ Freelance disponible</span>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="images/IMG_1010.JPG" alt="Samuel"> <br><h3 style="text-align: center; color: #25D366;">⭐⭐ SIEMRE HUMILDE ⭐⭐</h3>
+        </div>
+    </section>
+
+    <section id="projets" class="container">
+        <h2>Nos Récents Projets</h2>
+        <p class="subtitle">Quelques réalisations web pour particuliers</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <span class="project-tag">E-commerce</span>
+                <img src="images/MOI.JPG" alt="Projet">
+                <h3>Site de vente en ligne</h3>
+                <p>Site vitrine moderne pour entreprise avec design responsive.</p>
+                <div class="tech"><span>HTML</span><span>CSS</span><span>JS</span></div>
+            </div>
+            <div class="project-card">
+                <span class="project-tag">Éducation</span>
+                <img src="images/IMG_6880.JPG" alt="Projet">
+                <h3>Plateforme de Cours</h3>
+                <p>Site pour étudiants avec cours et ressources téléchargeables.</p>
+                <div class="tech"><span>HTML</span><span>CSS</span></div>
+            </div>
+            <div class="project-card">
+                <span class="project-tag">Site Vitrine</span>
+                <img src="images/IMG_6881.JPG" alt="Projet">
+                <h3>Business Local</h3>
+                <p>Site vitrine pour boutique à Lubumbashi avec contact WhatsApp.</p>
+                <div class="tech"><span>HTML</span><span>CSS</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences" class="container">
+        <h2>Compétences Techniques</h2>
+        <p class="subtitle">Logiciels modernes que nous utilisons</p>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>HTML5</h3>
+                <p>Structuration web sémantique & accessible</p>
+            </div>
+            <div class="skill-card">
+                <h3>CSS3</h3>
+                <p>Design responsive, Flexbox, Grid, Animations</p>
+            </div>
+            <div class="skill-card">
+                <h3>JavaScript</h3>
+                <p>Interactivité, ES6+, API & intégrations</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>Travaillons Ensemble</h2>
+        <p class="subtitle">Vous avez un projet ? Discutons-en sur WhatsApp</p>
+        <div class="contact-box">
+            <h3>Parlons en sur WhatsApp</h3>
+            <a href="https://wa.me/243826671939?text=Bonjour Monsieur SAMUEL, je me nomme.....; je viens de votre site et je suis là pour parler projet !!" class="whatsapp-btn" target="_blank">Discuter sur WhatsApp</a>
+            <p style="margin-top:15px; font-size:14px;">Réponse en moins de 24h • Du Lundi au Dimanche 24/24H</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>©️ 2026 <b>Samuel Marcus Sam</b> - Développeur Web & Entrepreneur Digital • Kolwezi, RDC</p>
+        </div>
+    </footer>
+
+    <script>
+        // Petit effet de scroll doux
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
